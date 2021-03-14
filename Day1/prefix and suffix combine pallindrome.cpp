@@ -16,44 +16,39 @@ int main(){
 	int t; cin>>t;
 	while(t--){
 		string s; cin>>s;
-		
 		int n=s.length();
+		
+		int l=0;
+		string res="";
+		for(int i=0,j=n-1;i<j;i++,j--){
+			if(s[i]!=s[j]){
+				break;
+			}
+			else l++;
+		}
+		res=string(s,0,l);
+		string str;
 		int maxlen=-1;
-		string res;
-		vector<string> prefix(n);
-		vector<string> suffix(n);
-		for(int i=0;i<n;i++){
-			string temp=string(s,0,i+1);
-			prefix[i]=temp;
-		}
-		for(int i=n-1;i>=0;i--){
-			string temp=string(s,i,n-i);
-			suffix[i]=temp;
-		}
-		for(int i=0;i<n;i++){
-			if(ispalin(prefix[i])){
-				if(maxlen<i+1){
-					maxlen=i+1;
-					res=prefix[i];
+		for(int i=l;i<n-l;i++){
+			string temp=string(s,l,i-l+1);
+			if(ispalin(temp)){
+				if(maxlen<i-l+1){
+					maxlen=i-l+1;
+					str=temp;
 				}
 			}
-			for(int j=n-1;j>i;j--){
-				if(ispalin(suffix[j])){
-					if(maxlen<n-j){
-						maxlen=n-j;
-						res=suffix[j];
-					}
-				}
-				string temp=prefix[i]+suffix[j];
-				if(ispalin(temp)){
-					if(maxlen<n-j+i+1){
-						maxlen=n-j+i+1;
-						res=temp;
-					}
+		}
+		for(int i=n-l-1;i>=l;i--){
+			string temp=string(s,i,n-l-i);
+			if(ispalin(temp)){
+				if(maxlen<n-l-i){
+					maxlen=n-l-i;
+					str=temp;
 				}
 			}
-			
 		}
+		res+=str;
+		res+=string(s,n-l,l);
 		cout<<res<<endl;
 	}
 	return 0;
