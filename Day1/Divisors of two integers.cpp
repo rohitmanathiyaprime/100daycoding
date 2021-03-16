@@ -17,7 +17,7 @@ int main(){
 	for(int i=0;i<n;i++){
 		y=max(y,a[i]);
 	}
-	cout<<x<<" "<<y;
+	cout<<x<<" "<<y<<endl;
 	return 0;
 	
 }
