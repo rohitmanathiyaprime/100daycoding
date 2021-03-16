@@ -1,12 +1,13 @@
 #include<bits/stdc++.h>
+#define ll long long
 using namespace std;
 int main(){
-	int t; cin>>t;
+	ll int t; cin>>t;
 	while(t--){
-		int n; cin>>n;
-		int a[n];
+		ll int n; cin>>n;
+		ll int a[n];
 		for(int i=0;i<n;i++) cin>>a[i];
-		int prefix[n];
+		ll int prefix[n];
 		prefix[0]=a[0];
 		for(int i=1;i<n;i++){
 			if(a[i]!=-1){
