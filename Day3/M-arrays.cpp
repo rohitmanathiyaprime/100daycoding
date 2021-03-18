@@ -1,20 +1,21 @@
 #include<bits/stdc++.h>
+#define ll long long 
 using namespace std;
 int main(){
-	int t; cin>>t;
+	ll int t; cin>>t;
 	while(t--){
-		int n,m; cin>>n>>m;
-		int a[n];
+		ll int n,m; cin>>n>>m;
+		ll int a[n];
 		map<int,int> mpp;
-		int cnt=0;
+		ll int cnt=0;
 		vector<int> v;
-		for(int i=0;i<n;i++){
+		for(ll int i=0;i<n;i++){
 			cin>>a[i];
 			if(a[i]%m==0){
 				cnt=1;
 			}
 			else{
-				int k=a[i]%m;
+				ll int k=a[i]%m;
 				v.push_back(k);
 				mpp[k]++;
 			}
@@ -22,7 +23,7 @@ int main(){
 		for(int i=0;i<v.size();i++){
 			if(mpp[v[i]]>0){
 				cnt++;
-				int k=1;
+				ll int k=1;
 				bool isok=true;
 				
 				while(1){
