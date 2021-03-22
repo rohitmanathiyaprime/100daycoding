@@ -34,36 +34,43 @@ void solve(){
 			cin>>a[i][j];
 		}
 	}
-	int k=0;
+	
 	// here for top row
+	int time=r-1;
+	while(time>0){
+		int k=0;
+		while(k<r/2){
 	
-	while(k<r/2){
-	
-		int pre=a[k][k];
-		for(int i=k;i<c-k;i++){
-			int temp=pre;
-			pre=a[k][i];
-			a[k][i]=temp;
-			cout<<temp<<" ";
-			
+			int pre=a[k][k];
+			for(int i=k;i<c-k;i++){
+				int temp=pre;
+				pre=a[k][i];
+				a[k][i]=temp;
+				cout<<temp<<" ";
+				
+			}
+			for(int i=k+1;i<r-k;i++){
+				int temp=pre;
+				pre=a[i][c-k-1];
+				a[i][c-k-1]=temp;
+			}
+			for(int i=c-2-k;i>=k;i--){
+				int temp=pre;
+				pre=a[r-1-k][i];
+				a[r-1-k][i]=temp;
+			}
+			for(int i=r-2-k;i>=k;i--){
+				int temp=pre;
+				pre=a[i][k];
+				a[i][k]=temp;
+			}
+			k++;
 		}
-		for(int i=k+1;i<r-k;i++){
-			int temp=pre;
-			pre=a[i][c-k-1];
-			a[i][c-k-1]=temp;
-		}
-		for(int i=c-2-k;i>=k;i--){
-			int temp=pre;
-			pre=a[r-1-k][i];
-			a[r-1-k][i]=temp;
-		}
-		for(int i=r-2-k;i>=k;i--){
-			int temp=pre;
-			pre=a[i][k];
-			a[i][k]=temp;
-		}
-		k++;
+//		cout<<"this is time"<<time;
+		time--;
 	}
+	
+	
 	for(int i=0;i<r;i++){
 		for(int j=0;j<c;j++){
 			cout<<a[i][j]<<" ";
