@@ -39,6 +39,7 @@ int main(){
 	cout<<dp[n][m];
 	string res="";
 	printLCS(dp,n,m,res,a,b);
+	reverse(res.begin(),res.end());
 	cout<<res;
 	return 0;
 }
